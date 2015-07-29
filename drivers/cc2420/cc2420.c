@@ -170,7 +170,7 @@ int cc2420_set_channel(unsigned int chan)
 unsigned int cc2420_get_channel(void)
 {
     /* undo calculation from cc2420_set_channel() */
-    return ((cc2420_read_reg(CC2420_REG_FSCTRL) - 357) / 5) + 11;
+    return (((cc2420_read_reg(CC2420_REG_FSCTRL) & CC2420_FREQ_MASK) - 357) / 5) + 11;
 }
 
 uint16_t cc2420_set_address(uint16_t addr)
